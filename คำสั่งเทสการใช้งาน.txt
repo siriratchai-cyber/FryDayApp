@@ -1,0 +1,14 @@
+1.เทสเพิ่มโปรโมชั่น
+https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/pro02.png  
+
+BY1 GET1 FREE COCACOLA
+
+2.เทสเพิ่มแอดออน
+BBQ Sauce
+Mushroom Sauce
+
+3.เทสเปลี่ยนรูปภาพ
+https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/koi-fishjai_10757673.png
+https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/koi-fishkua_10757727.png
+https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/koi-fishlaleng_10757694.png
+https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/koi_restaurant.png
