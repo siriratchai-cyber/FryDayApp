@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="24dp">
+
+    <!-- Logo หรือชื่อแอป -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FryDay"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/orange"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurant Shop Login"
+            android:textSize="16sp"
+            android:textColor="@color/gray_text"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <!-- ฟอร์ม Login -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ช่อง Email -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/orange"
+            app:hintTextColor="@color/orange"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/orange"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="12dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ช่อง Password -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/orange"
+            app:hintTextColor="@color/orange"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/orange"
+            app:endIconMode="password_toggle"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="12dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ปุ่ม Login -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="LOGIN"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/orange"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"
+            app:icon="@drawable/ic_login"
+            app:iconGravity="textStart"/>
+
+        <!-- ปุ่ม Go to Register -->
+        <Button
+            android:id="@+id/btnGoRegister"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="GO TO REGISTER"
+            android:textSize="14sp"
+            android:textColor="@color/orange"
+            android:background="@drawable/button_outline"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"
+            android:shadowRadius="0"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            app:strokeColor="@color/orange"
+            app:strokeWidth="2dp"
+            android:layout_marginBottom="16dp"/>
+
+
+        <!-- Forgot Password -->
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textColor="@color/orange"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:layout_gravity="center_horizontal"
+            android:background="?attr/selectableItemBackground"/>
+
+    </LinearLayout>
+
+    <!-- เว้นระยะด้านล่าง -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"/>
+
+</LinearLayout>

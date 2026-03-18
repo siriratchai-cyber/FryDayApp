@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="nav_selected">#FF5722</color>
+    <color name="nav_unselected">#888888</color>
+    <color name="navCream">#FFF8F0</color>
+    <color name="orange">#F28C28</color>
+    <color name="gray">#E0E0E0</color>
+    <color name="gray_text">#666666</color>
+    <color name="green">#4CAF50</color>
+    <color name="red">#F44336</color>
+
+</resources>

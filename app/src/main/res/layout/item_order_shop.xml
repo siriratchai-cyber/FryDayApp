@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Order Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:id="@+id/tvOrderNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="#0001"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/tvOrderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Waiting for Confirmation"
+                android:textSize="12sp"
+                android:textColor="#F28C28"
+                android:background="#FFF3E0"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Order Items -->
+        <TextView
+            android:id="@+id/tvOrderItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Combos B x1, Fish &amp; Chips x2"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Customer Name -->
+        <TextView
+            android:id="@+id/tvCustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer name: Natalie"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Pickup Time -->
+        <TextView
+            android:id="@+id/tvPickupTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pickup time: 12:30 PM"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/layoutActions">
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Confirm"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#4CAF50"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/btnReject"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Reject"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#F44336"
+                android:layout_marginStart="4dp" />
+
+        </LinearLayout>
+
+        <!-- Completed Status (แสดงเมื่อ Completed) -->
+        <TextView
+            android:id="@+id/tvCompletedStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#4CAF50"
+            android:layout_gravity="end"
+            android:visibility="gone" />
+
+        <!-- View Details Link -->
+        <TextView
+            android:id="@+id/tvViewDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View details >"
+            android:textSize="14sp"
+            android:textColor="#F28C28"
+            android:layout_gravity="end"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackground" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

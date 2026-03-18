@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FryDayApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- พื้นฐานของ MaterialComponents -->
+    </style>
+
+    <style name="Theme.FryDayApp" parent="Base.Theme.FryDayApp">
+        <!-- ตั้งค่าสีหลัก -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/orange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorAccent">@color/orange</item>
+
+        <!-- ตั้งค่าพื้นหลัง -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/orange</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- MaterialComponents specific -->
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button</item>
+    </style>
+</resources>

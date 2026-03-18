@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:background="@android:color/white">
+
+    <!-- หัวข้อ Promotion + ปุ่มดินสอ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/promotion"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#F28C28" />
+
+        <ImageButton
+            android:id="@+id/btnEditPromotion"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/edit_promotion"
+            android:padding="4dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_edit"
+            android:tint="#F28C28"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <!-- Horizontal RecyclerView สำหรับโปรโมชั่น -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPromotion"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>

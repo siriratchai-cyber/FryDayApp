@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:label="FryDayApp"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FryDayApp">
+        <activity
+            android:name=".EditMenuDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerOrderDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_profile"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false" /> <!-- 🔥 Login = Launcher -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Other Activities -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StatusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeShopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StatusShopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileShopActivity"
+            android:exported="false" /> <!-- ❌ MainActivity ไม่ใช่ launcher แล้ว -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" /> <!-- ✅ เพิ่ม MenuDetailActivity ตรงนี้ -->
+        <activity
+            android:name=".MenuDetailActivity"
+            android:exported="false" /> <!-- ✅ เพิ่ม CartActivity (ถ้ามี) -->
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

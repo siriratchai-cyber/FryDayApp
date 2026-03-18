@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:background="@drawable/nav_background"
+    android:paddingHorizontal="8dp"
+    android:weightSum="4">
+
+    <ImageButton
+        android:id="@+id/btnHome"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_home"
+        android:background="@drawable/nav_ripple"
+        android:scaleType="centerInside"
+        android:padding="12dp"
+        android:contentDescription="Home" />
+
+    <ImageButton
+        android:id="@+id/btnMenu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_menu"
+        android:background="@drawable/nav_ripple"
+        android:scaleType="centerInside"
+        android:padding="12dp"
+        android:contentDescription="Menu" />
+
+    <ImageButton
+        android:id="@+id/btnStatus"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_status"
+        android:background="@drawable/nav_ripple"
+        android:scaleType="centerInside"
+        android:padding="12dp"
+        android:contentDescription="Status" />
+
+    <ImageButton
+        android:id="@+id/btnProfile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_profile"
+        android:background="@drawable/nav_ripple"
+        android:scaleType="centerInside"
+        android:padding="12dp"
+        android:contentDescription="Profile" />
+
+</LinearLayout>

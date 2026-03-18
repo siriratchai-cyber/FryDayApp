@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "695672281367",
+    "project_id": "frydayapp-6e881",
+    "storage_bucket": "frydayapp-6e881.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695672281367:android:dcf43135e2737a0fd97f52",
+        "android_client_info": {
+          "package_name": "com.example.frydayapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxWphkTn8SV6glU27Il30Gj1rHxDA-QRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
