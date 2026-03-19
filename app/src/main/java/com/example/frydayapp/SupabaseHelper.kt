@@ -226,7 +226,7 @@ object SupabaseHelper {
                 Log.d(tag, "=== DELETE OPTION VIA RETROFIT ===")
                 Log.d(tag, "optionId: $optionId")
 
-                // ✅ ต้องส่งเป็น Map แบบเดียวกับ updateOption
+
                 val filters = mapOf("addon_id" to "eq.$optionId")
 
                 val response = RetrofitClient.instance.deleteOption(filters).execute()

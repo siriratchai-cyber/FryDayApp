@@ -97,7 +97,7 @@ class LoginActivity : AppCompatActivity() {
                 val intent = if (isRestaurant) {
                     Intent(this@LoginActivity, HomeShopActivity::class.java)
                 } else {
-                    Intent(this@LoginActivity, HomeActivity::class.java)  // ✅ ใช้ .class.java
+                    Intent(this@LoginActivity, HomeActivity::class.java)
                 }
 
                 startActivity(intent)

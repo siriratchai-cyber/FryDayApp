@@ -3,7 +3,7 @@ package com.example.frydayapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton  // ✅ เพิ่ม import นี้
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -89,10 +89,10 @@ class SectionAdapter(
         }
     }
 
-    // ✅ ViewHolder สำหรับโปรโมชั่น (ซ่อนปุ่ม Edit)
+
     class PromotionSliderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val recyclerPromotion: RecyclerView = itemView.findViewById(R.id.recyclerPromotion)
-        private val btnEdit: ImageButton? = itemView.findViewById(R.id.btnEditPromotion)  // ✅ แก้เป็น btnEditPromotion
+        private val btnEdit: ImageButton? = itemView.findViewById(R.id.btnEditPromotion)
 
         fun bind(promotionList: List<PromotionModel>) {
             recyclerPromotion.layoutManager = LinearLayoutManager(
@@ -102,12 +102,12 @@ class SectionAdapter(
             )
             recyclerPromotion.adapter = PromotionSliderAdapter(promotionList)
 
-            // ✅ ซ่อนปุ่ม Edit
+
             btnEdit?.visibility = View.GONE
         }
     }
 
-    // ✅ ViewHolder สำหรับ Recommended
+
     class RecommendedHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvCategory: TextView = itemView.findViewById(R.id.tvCategory)
 

@@ -65,7 +65,7 @@ class OrderDetailActivity : AppCompatActivity() {
         btnPreparing = findViewById(R.id.btnPreparing)
         btnComplete = findViewById(R.id.btnComplete)
         progressStatus = findViewById(R.id.progressStatus)
-        progressBar = findViewById(R.id.progressBar)  // ✅ ต้องมีใน XML
+        progressBar = findViewById(R.id.progressBar)
     }
 
     private fun setupClickListeners() {
@@ -92,7 +92,6 @@ class OrderDetailActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
-                // ✅ ใช้ฟังก์ชันใหม่ getOrderById
                 val order = withContext(Dispatchers.IO) {
                     OrderRepository.getOrderById(orderId)
                 }

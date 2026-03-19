@@ -7,7 +7,7 @@ data class CartItem(
     val quantity: Int = 1,
     val options: List<Option> = emptyList(),
     val specialInstructions: String = "",
-    val imageUrl: String? = null  // เพิ่ม imageUrl
+    val imageUrl: String? = null
 ) {
     val totalPrice: Double
         get() = (price + options.sumOf { it.price }) * quantity

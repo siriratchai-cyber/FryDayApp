@@ -64,7 +64,6 @@ class MenuAdapter(
         fun bind(menu: MenuItemModel, onItemClick: (MenuItemModel) -> Unit) {
             tvMenuName.text = menu.name ?: "ไม่มีชื่อ"
 
-            // ✅ ใช้ details (ตัวเล็ก) ตามที่กำหนดใน MenuItemModel
             if (!menu.details.isNullOrEmpty()) {
                 tvMenuDescription.text = menu.details
                 tvMenuDescription.visibility = View.VISIBLE

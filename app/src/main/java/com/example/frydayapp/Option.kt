@@ -3,7 +3,7 @@ package com.example.frydayapp
 import java.io.Serializable
 import kotlinx.serialization.Serializable as KSerializable
 
-@KSerializable  // ✅ เพิ่ม annotation
+@KSerializable
 data class Option(
     val id: String,
     val name: String,

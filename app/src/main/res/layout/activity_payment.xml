@@ -408,7 +408,6 @@
                     android:textColor="#A60909"
                     android:textSize="14sp" />
 
-                <!-- ❌ เอา Report a problem ออก เปลี่ยนเป็นข้อความติดต่อร้าน -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

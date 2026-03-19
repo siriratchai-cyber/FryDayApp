@@ -62,13 +62,13 @@
             android:exported="false" />
         <activity
             android:name=".ProfileShopActivity"
-            android:exported="false" /> <!-- ❌ MainActivity ไม่ใช่ launcher แล้ว -->
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" /> <!-- ✅ เพิ่ม MenuDetailActivity ตรงนี้ -->
+            android:exported="false" />
         <activity
             android:name=".MenuDetailActivity"
-            android:exported="false" /> <!-- ✅ เพิ่ม CartActivity (ถ้ามี) -->
+            android:exported="false" />
         <activity
             android:name=".CartActivity"
             android:exported="false" />

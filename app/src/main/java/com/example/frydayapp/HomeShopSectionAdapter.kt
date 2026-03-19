@@ -18,7 +18,7 @@ class HomeShopSectionAdapter(
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
-        private const val TYPE_PROMOTION_SLIDER = 0  // ✅ เปลี่ยนเป็น slider
+        private const val TYPE_PROMOTION_SLIDER = 0
         private const val TYPE_RECOMMENDED_HEADER = 1
         private const val TYPE_CATEGORY_HEADER = 2
         private const val TYPE_MENU = 3
@@ -27,7 +27,7 @@ class HomeShopSectionAdapter(
     override fun getItemViewType(position: Int): Int {
         val item = items[position]
         return when {
-            item == "PromotionSlider" -> TYPE_PROMOTION_SLIDER  // ✅ ใช้ slider
+            item == "PromotionSlider" -> TYPE_PROMOTION_SLIDER
             item == "RecommendedHeader" -> TYPE_RECOMMENDED_HEADER
             item is String && !item.startsWith("Promotion") && !item.startsWith("Recommended") -> TYPE_CATEGORY_HEADER
             item is MenuItemModel -> TYPE_MENU
@@ -78,7 +78,7 @@ class HomeShopSectionAdapter(
         }
     }
 
-    // ✅ ViewHolder สำหรับ Promotion Slider
+
     class PromotionSliderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val recyclerPromotion: RecyclerView = itemView.findViewById(R.id.recyclerPromotion)
         private val btnEdit: ImageButton = itemView.findViewById(R.id.btnEditPromotion)
@@ -92,7 +92,6 @@ class HomeShopSectionAdapter(
             )
             recyclerPromotion.adapter = PromotionSliderAdapter(promotionList)
 
-            // ✅ ถ้าเป็นร้านค้า ให้แสดงปุ่ม Edit, ถ้าเป็นลูกค้าให้ซ่อน
             if (isRestaurant) {
                 btnEdit.visibility = View.VISIBLE
                 btnEdit.setOnClickListener { onEditClick() }

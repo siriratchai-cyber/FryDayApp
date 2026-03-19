@@ -372,7 +372,7 @@ class EditMenuDetailActivity : AppCompatActivity() {
 
     private fun addNewOption(name: String, price: Double) {
         lifecycleScope.launch {
-            // ✅ สร้างรหัสแบบ A001, A002, ... จากเลขสูงสุดที่มี
+            // สร้างรหัสแบบ A001, A002, ... จากเลขสูงสุดที่มี
             val newId = generateOptionId()
 
             val newOption = Option(

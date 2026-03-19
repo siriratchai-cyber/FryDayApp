@@ -413,8 +413,7 @@
         android:background="@android:color/white"
         android:elevation="8dp">
 
-        <include layout="@layout/custom_bottom_nav" />  <!-- ✅ ต้องมีอันนี้ -->
-
+        <include layout="@layout/custom_bottom_nav" />
     </LinearLayout>
 
 </LinearLayout>

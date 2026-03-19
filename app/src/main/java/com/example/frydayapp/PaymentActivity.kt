@@ -36,7 +36,7 @@ class PaymentActivity : AppCompatActivity() {
     private var selectedPickupTimestamp: Long = 0
 
     private val calendar = Calendar.getInstance()
-    private val tag = "PaymentActivity"  // ✅ เปลี่ยนเป็นตัวพิมพ์เล็กตาม warning
+    private val tag = "PaymentActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +70,7 @@ class PaymentActivity : AppCompatActivity() {
         btnBack.setOnClickListener { finish() }
 
         tvViewOrderDetails.setOnClickListener {
-            val orderId = tvOrderId.text.toString()  // ✅ ได้ "#0009"
+            val orderId = tvOrderId.text.toString()
             // ลบ # ออกถ้าต้องการเก็บเป็นตัวเลข
             val cleanOrderId = orderId.replace("#", "")
 
@@ -98,7 +98,7 @@ class PaymentActivity : AppCompatActivity() {
         val timeFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
         selectedPickupTime = timeFormat.format(calendar.time)
 
-        // ✅ แก้ warning: ใช้ resource string
+
         tvSelectPickupTime.text = getString(R.string.pickup_time_format, selectedPickupTime)
     }
 
@@ -120,7 +120,6 @@ class PaymentActivity : AppCompatActivity() {
                 val timeFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
                 selectedPickupTime = timeFormat.format(selected.time)
 
-                // ✅ แก้ warning: ใช้ resource string
                 tvSelectPickupTime.text = getString(R.string.pickup_time_format, selectedPickupTime)
 
             }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true).show()
@@ -150,7 +149,6 @@ class PaymentActivity : AppCompatActivity() {
     private fun loadCustomerFromSupabase(uid: String) {
         lifecycleScope.launch {
             try {
-                // ✅ แก้ syntax ที่ถูกต้องสำหรับ Supabase
                 val response = withContext(Dispatchers.IO) {
                     SupabaseClientProvider.client
                         .from("customer")
@@ -175,7 +173,6 @@ class PaymentActivity : AppCompatActivity() {
     private fun loadCustomerPhoneFromSupabase(uid: String) {
         lifecycleScope.launch {
             try {
-                // ✅ แก้ syntax ที่ถูกต้องสำหรับ Supabase
                 val response = withContext(Dispatchers.IO) {
                     SupabaseClientProvider.client
                         .from("customer")
@@ -200,7 +197,6 @@ class PaymentActivity : AppCompatActivity() {
     private fun generateOrderId() {
         lifecycleScope.launch {
             try {
-                // ✅ ดึงเลขจาก Supabase จริงๆ
                 val latestNumber = withContext(Dispatchers.IO) {
                     OrderRepository.getLatestOrderNumber()
                 }
@@ -208,7 +204,6 @@ class PaymentActivity : AppCompatActivity() {
                 val nextNumber = latestNumber + 1
                 tvOrderId.text = String.format(Locale.getDefault(), "#%04d", nextNumber)
 
-                // ✅ อัปเดต SharedPreferences
                 val prefs = getSharedPreferences("orders_prefs", MODE_PRIVATE)
                 prefs.edit().putInt("last_order_number", nextNumber).apply()
 
@@ -266,8 +261,8 @@ class PaymentActivity : AppCompatActivity() {
             total = total,
             orderDate = currentDate,
             orderTime = currentTime,
-            pickupTime = selectedPickupTime,  // ✅ ส่งแค่ pickupTime
-            // pickupTimestamp = selectedPickupTimestamp,  // ❌ ลบออก
+            pickupTime = selectedPickupTime,
+            // pickupTimestamp = selectedPickupTimestamp,
             status = "pending",
             paymentMethod = "PromptPay",
             paymentTime = currentTime,

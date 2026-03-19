@@ -43,7 +43,7 @@ class OrderShopAdapter(
             tvOrderNumber.text = order.orderId
             tvOrderItems.text = formatOrderItems(order.items)
 
-            // ✅ แสดงชื่อลูกค้า ไม่ใช่ UID
+
             tvCustomerName.text = "Customer: ${order.username}"
 
             tvPickupTime.text = "Pickup: ${order.pickupTime}"

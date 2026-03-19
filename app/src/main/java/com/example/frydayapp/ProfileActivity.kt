@@ -21,7 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-// ✅ imports ที่จำเป็น
+
 import io.github.jan.supabase.postgrest.from
 import com.example.frydayapp.SupabaseClientProvider
 import com.example.frydayapp.Customer
@@ -75,7 +75,7 @@ class ProfileActivity : AppCompatActivity() {
         initViews()
         setupClickListeners()
         loadUserData()
-        loadCustomerDataFromSupabase() // ✅ โหลดข้อมูลจาก Supabase
+        loadCustomerDataFromSupabase() // โหลดข้อมูลจาก Supabase
         loadProfileImage()
         setSelectedTab()
     }
@@ -178,7 +178,7 @@ class ProfileActivity : AppCompatActivity() {
         tvEmail.text = currentUser.email ?: "ไม่ระบุ"
     }
 
-    // ✅ โหลดข้อมูลจาก Supabase (ชื่อและเบอร์)
+
     private fun loadCustomerDataFromSupabase() {
         lifecycleScope.launch {
             try {
@@ -196,7 +196,7 @@ class ProfileActivity : AppCompatActivity() {
                 if (response.isNotEmpty()) {
                     val customer = response.first()
 
-                    // ✅ ใช้ username จาก Supabase (sirirat)
+
                     val username = customer.username
                     if (!username.isNullOrEmpty()) {
                         tvUserName.text = username
@@ -209,7 +209,6 @@ class ProfileActivity : AppCompatActivity() {
                         tvProfileName.text = emailName
                     }
 
-                    // ✅ ใช้ tel จาก Supabase
                     val phone = customer.tel
                     if (!phone.isNullOrEmpty()) {
                         tvPhoneNumber.text = phone

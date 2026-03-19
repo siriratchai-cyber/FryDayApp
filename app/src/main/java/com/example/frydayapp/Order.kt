@@ -10,7 +10,7 @@ data class Order(
     val orderDate: String,
     val orderTime: Long = System.currentTimeMillis(),
     val pickupTime: String,
-    val pickupTimestamp: Long = 0,  // ✅ เพิ่มฟิลด์นี้
+    val pickupTimestamp: Long = 0,
     val status: String,
     val paymentMethod: String,
     val restaurantName: String,

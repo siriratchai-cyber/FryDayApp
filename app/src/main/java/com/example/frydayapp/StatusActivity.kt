@@ -42,7 +42,7 @@ class StatusActivity : AppCompatActivity() {
     private var completedFilter = "all"
     private var isLoading = false
 
-    // ✅ เก็บ cache ของ order ไว้
+    //  เก็บ cache ของ order ไว้
     private var cachedOrders: List<Order>? = null
     private var lastLoadTime: Long = 0
     private val CACHE_DURATION = 30000 // 30 วินาที
@@ -65,7 +65,7 @@ class StatusActivity : AppCompatActivity() {
         setupClickListeners()
         setupFilterListeners()
 
-        // ✅ โหลดข้อมูลทันที
+
         loadOrders()
     }
 
@@ -83,7 +83,7 @@ class StatusActivity : AppCompatActivity() {
         btnThisWeek = findViewById(R.id.btnThisWeek)
         btnAll = findViewById(R.id.btnAll)
 
-        // ✅ ตั้งค่าเริ่มต้นของ filter
+
         btnThisWeek.setBackgroundResource(R.drawable.filter_unselected_bg)
         btnAll.setBackgroundResource(R.drawable.filter_selected_bg)
         btnAll.setTextColor(ContextCompat.getColor(this, R.color.orange))
@@ -191,11 +191,11 @@ class StatusActivity : AppCompatActivity() {
         } catch (_: Exception) {}
     }
 
-    // ✅ โหลดข้อมูลแบบเร็วขึ้น
+
     private fun loadOrders() {
         val currentUserId = auth.currentUser?.uid ?: return
 
-        // ✅ เช็ค cache ก่อน
+
         if (shouldUseCache()) {
             cachedOrders?.let {
                 allOrders = it
@@ -211,18 +211,18 @@ class StatusActivity : AppCompatActivity() {
 
         mainScope.launch {
             try {
-                // ✅ โหลดข้อมูลแบบ async พร้อมกัน
+
                 val ordersDeferred = async(Dispatchers.IO) {
                     OrderRepository.getOrders()
                 }
 
                 val orders = ordersDeferred.await()
 
-                // ✅ กรองเฉพาะของลูกค้าคนนี้
+
                 allOrders = orders.filter { it.cus_id == currentUserId }
                     .sortedByDescending { it.orderTime }
 
-                // ✅ เก็บ cache
+
                 cachedOrders = allOrders
                 lastLoadTime = System.currentTimeMillis()
 
@@ -232,7 +232,7 @@ class StatusActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Log.e(tag, "Error loading orders: ${e.message}")
 
-                // ✅ ถ้า error และมี cache ให้ใช้ cache
+
                 if (cachedOrders != null) {
                     allOrders = cachedOrders!!
                     filterOrders()
@@ -247,14 +247,17 @@ class StatusActivity : AppCompatActivity() {
         }
     }
 
-    // ✅ เช็คว่าควรใช้ cache หรือไม่
+
     private fun shouldUseCache(): Boolean {
         return cachedOrders != null &&
                 (System.currentTimeMillis() - lastLoadTime) < CACHE_DURATION
     }
 
     private fun filterOrders() {
-        // ✅ กรองตาม tab
+        Log.d(tag, "=== FILTERING ORDERS ===")
+        Log.d(tag, "currentTab: $currentTab, completedFilter: $completedFilter")
+        Log.d(tag, "allOrders size: ${allOrders.size}")
+
         val baseList = when (currentTab) {
             "ongoing" -> allOrders.filter {
                 it.status == "pending" || it.status == "confirmed" || it.status == "preparing"
@@ -263,27 +266,43 @@ class StatusActivity : AppCompatActivity() {
             else -> allOrders
         }
 
-        // ✅ กรองตาม filter (สำหรับ completed)
+        Log.d(tag, "baseList size: ${baseList.size}")
+
+        // แสดงสถานะของออเดอร์ทั้งหมด
+        allOrders.groupBy { it.status }.forEach { (status, list) ->
+            Log.d(tag, "Status $status: ${list.size} orders")
+        }
+
         filteredOrders = if (currentTab == "completed" && completedFilter == "week") {
             filterOrdersThisWeek(baseList)
         } else {
             baseList
         }
 
-        // ✅ อัปเดต adapter
+        Log.d(tag, "filteredOrders size: ${filteredOrders.size}")
+
+        // แสดงรายการออเดอร์ที่กรองได้
+        filteredOrders.forEachIndexed { index, order ->
+            Log.d(tag, "Filtered[$index]: ${order.orderId} - ${order.status} - ${Date(order.orderTime)}")
+        }
+
+
         orderAdapter.updateItems(filteredOrders)
 
-        // ✅ แสดง/ซ่อน empty state
         if (filteredOrders.isEmpty()) {
+            Log.d(tag, "Showing empty state")
             showEmptyState(true)
         } else {
+            Log.d(tag, "Showing orders")
             showEmptyState(false)
             recyclerOrders.visibility = View.VISIBLE
         }
     }
 
     private fun filterOrdersThisWeek(orders: List<Order>): List<Order> {
-        val calendar = Calendar.getInstance()
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone("Asia/Bangkok"))
+
+        // ตั้งค่าเป็นวันจันทร์ของสัปดาห์นี้ เวลา 00:00
         calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
         calendar.set(Calendar.HOUR_OF_DAY, 0)
         calendar.set(Calendar.MINUTE, 0)
@@ -291,11 +310,28 @@ class StatusActivity : AppCompatActivity() {
         calendar.set(Calendar.MILLISECOND, 0)
         val weekStart = calendar.timeInMillis
 
+        // ไปวันอาทิตย์
+        calendar.add(Calendar.DAY_OF_MONTH, 6)
+        calendar.set(Calendar.HOUR_OF_DAY, 23)
+        calendar.set(Calendar.MINUTE, 59)
+        calendar.set(Calendar.SECOND, 59)
+        calendar.set(Calendar.MILLISECOND, 999)
+        val weekEnd = calendar.timeInMillis
+
+        Log.d(tag, "Week range: ${Date(weekStart)} to ${Date(weekEnd)}")
+
+
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.US)
+
         return orders.filter { order ->
             try {
-                val orderDate = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(order.orderDate)
-                orderDate.time >= weekStart
+                val date = dateFormat.parse(order.orderDate)
+                val orderTime = date?.time ?: 0L
+                val inRange = orderTime in weekStart..weekEnd
+                Log.d(tag, "Order ${order.orderId}: date=${order.orderDate}, time=${Date(orderTime)}, inRange=$inRange")
+                inRange
             } catch (e: Exception) {
+                Log.e(tag, "Error parsing date for order ${order.orderId}: ${e.message}")
                 false
             }
         }
@@ -326,11 +362,11 @@ class StatusActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         } else {
-            // ✅ โหลดใหม่เฉพาะเมื่อ cache หมดอายุ
+
             if (!shouldUseCache()) {
                 loadOrders()
             } else {
-                // ✅ ใช้ cache ที่มีอยู่
+
                 filterOrders()
             }
         }

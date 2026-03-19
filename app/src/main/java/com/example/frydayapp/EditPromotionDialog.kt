@@ -197,7 +197,7 @@ class EditPromotionDialog(
     private fun deletePromotion(proId: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                Log.d(tag, "Attempting to delete promotion with ID: $proId")  // ✅ เพิ่ม Log
+                Log.d(tag, "Attempting to delete promotion with ID: $proId")
 
                 supabase.from("promotion").delete {
                     filter {

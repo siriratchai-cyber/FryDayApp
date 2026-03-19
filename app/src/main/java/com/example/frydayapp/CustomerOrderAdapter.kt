@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CustomerOrderAdapter(
     private var orders: List<Order>,
-    private val onItemClick: (Order) -> Unit
+    private val onItemClick:  (Order) -> Unit
 ) : RecyclerView.Adapter<CustomerOrderAdapter.OrderViewHolder>() {
 
     fun updateItems(newOrders: List<Order>) {

@@ -40,7 +40,7 @@ class CustomerOrderDetailActivity : AppCompatActivity() {
     private lateinit var tvStep2: TextView
     private lateinit var tvStep3: TextView
     private lateinit var tvCurrentStatus: TextView
-    private lateinit var progressBar: ProgressBar  // ✅ เพิ่มตรงนี้
+    private lateinit var progressBar: ProgressBar
 
     private lateinit var auth: FirebaseAuth
     private var currentOrder: Order? = null
@@ -85,7 +85,7 @@ class CustomerOrderDetailActivity : AppCompatActivity() {
         tvStep2 = findViewById(R.id.tvStep2)
         tvStep3 = findViewById(R.id.tvStep3)
         tvCurrentStatus = findViewById(R.id.tvCurrentStatus)
-        progressBar = findViewById(R.id.progressBar)  // ✅ เพิ่มตรงนี้
+        progressBar = findViewById(R.id.progressBar)
     }
 
     private fun setupClickListeners() {
@@ -106,7 +106,6 @@ class CustomerOrderDetailActivity : AppCompatActivity() {
             try {
                 Log.d(tag, "Loading order by ID: $orderId")
 
-                // ✅ ใช้ฟังก์ชันใหม่ getOrderById
                 val order = withContext(Dispatchers.IO) {
                     OrderRepository.getOrderById(orderId)
                 }
@@ -115,7 +114,7 @@ class CustomerOrderDetailActivity : AppCompatActivity() {
 
                 if (order != null) {
                     currentOrder = order
-                    displayOrder(order)  // ✅ เรียกฟังก์ชันแสดงข้อมูล
+                    displayOrder(order)
                 } else {
                     Log.e(tag, "Order not found: $orderId")
                     Toast.makeText(this@CustomerOrderDetailActivity,
@@ -134,7 +133,7 @@ class CustomerOrderDetailActivity : AppCompatActivity() {
         }
     }
 
-    // ✅ เพิ่มฟังก์ชันนี้
+
     private fun displayOrder(order: Order) {
         tvOrderNumber.text = order.orderId
         tvTotalAmount.text = "$${order.total}"
@@ -172,7 +171,7 @@ class CustomerOrderDetailActivity : AppCompatActivity() {
         tvMapRestaurantPhone.text = order.restaurantPhone
         tvMapInstruction.text = "Please provide your name and order number, or show your screen to the staff to collect your food."
 
-        // ✅ อัปเดตสถานะ
+
         updateOrderStatus(order.status)
     }
 

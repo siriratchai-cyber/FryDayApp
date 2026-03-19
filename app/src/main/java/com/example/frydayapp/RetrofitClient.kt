@@ -12,12 +12,12 @@ object RetrofitClient {
     private const val API_KEY = "sb_publishable_agTz30i0OhOau5hs3Cq7bA_ysZD0rvr"
 
     private val client = OkHttpClient.Builder()
-        // ✅ Timeout
+        //  Timeout
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
 
-        // ✅ Header Interceptor
+        //  Header Interceptor
         .addInterceptor { chain ->
             val request = chain.request().newBuilder()
                 .addHeader("apikey", API_KEY)
@@ -28,7 +28,7 @@ object RetrofitClient {
             chain.proceed(request)
         }
 
-        // ✅ Logging Interceptor (เฉพาะ Debug)
+        //  Logging Interceptor (เฉพาะ Debug)
         .apply {
             if (BuildConfig.DEBUG) {
                 val logging = HttpLoggingInterceptor()

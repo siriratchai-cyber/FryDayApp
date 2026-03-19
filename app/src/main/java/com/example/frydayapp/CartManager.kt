@@ -84,8 +84,7 @@ object CartManager {
 
     fun getTotal(): Double {
         val subtotal = getSubtotal()
-        // ✅ Tax 7% อยู่ใน subtotal แล้ว (คิดต่อรายการ)
-        // ✅ ไม่มี Delivery Fee (เพราะรับหน้าร้าน)
+
         return subtotal
     }
 }

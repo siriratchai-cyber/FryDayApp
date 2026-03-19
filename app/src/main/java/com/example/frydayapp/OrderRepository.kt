@@ -359,9 +359,7 @@ object OrderRepository {
         return orders
     }
 
-    /**
-     * ✅ NEW: ดึงออเดอร์เดียวตาม ID (เร็วมาก)
-     */
+
     suspend fun getOrderById(orderId: String): Order? {
         return withContext(Dispatchers.IO) {
             try {

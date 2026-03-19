@@ -210,7 +210,6 @@ class StatusShopActivity : AppCompatActivity() {
         mainScope.launch {
             val thaiTz = TimeZone.getTimeZone("Asia/Bangkok")
 
-            // ✅ วันที่สำหรับค้นหา (รูปแบบ dd/MM/yyyy)
             val pickupDateString = dateFormat.format(calendar.time)  // เช่น "18/03/2026"
 
             val year = calendar.get(Calendar.YEAR)
@@ -219,18 +218,16 @@ class StatusShopActivity : AppCompatActivity() {
             try {
                 Log.d(TAG, "Loading orders for pickup date: $pickupDateString")
 
-                // ✅ ดึงออเดอร์ตาม pickup_time
                 val ordersDeferred = async(Dispatchers.IO) {
                     OrderRepository.getOrdersByPickupDate(pickupDateString)
                 }
 
-                // ✅ ดึงจำนวนออเดอร์ตาม pickup_time ทั้งเดือน (สำหรับจุดสี)
                 val countMapDeferred = async(Dispatchers.IO) {
                     OrderRepository.getOrderCountByPickupMonth(year, month)
                 }
 
                 val orders = ordersDeferred.await()
-                orderCountMap = countMapDeferred.await()  // ✅ ตอนนี้ orderCountMap คือ pickup date counts
+                orderCountMap = countMapDeferred.await()
 
                 // DEBUG: แสดง pickup_time ของแต่ละออเดอร์
                 orders.forEach {
@@ -239,7 +236,7 @@ class StatusShopActivity : AppCompatActivity() {
 
                 allOrders = orders
 
-                updateDateIndicator()  // ✅ จุดสีจะแสดงตาม pickup_time
+                updateDateIndicator()
                 filterOrders()
 
                 tvOrderCount.text = getString(R.string.orders_count, orders.size)
@@ -413,7 +410,7 @@ class StatusShopActivity : AppCompatActivity() {
                 Log.d(TAG, "Order ${order.orderId} rejected in background")
 
                 // ไม่ต้องโหลดหน้าใหม่แล้ว
-                // loadDataForCurrentDate()  // ❌ เอาออก
+                // loadDataForCurrentDate()
 
             } catch (e: Exception) {
                 Log.e(TAG, "Error updating order: ${e.message}")

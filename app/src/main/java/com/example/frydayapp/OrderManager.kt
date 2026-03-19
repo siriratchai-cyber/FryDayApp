@@ -14,7 +14,7 @@ object OrderManager {
 
     private const val PREF_NAME = "orders_prefs"
     private const val KEY_ORDERS = "orders"
-    private const val KEY_LAST_ORDER_NUMBER = "last_order_number"  // ✅ เพิ่ม key สำหรับเก็บเลขล่าสุด
+    private const val KEY_LAST_ORDER_NUMBER = "last_order_number"
     private var sharedPreferences: SharedPreferences? = null
     private val gson = Gson()
 
@@ -45,9 +45,7 @@ object OrderManager {
         sharedPreferences?.edit()?.putString(KEY_ORDERS, json)?.apply()
     }
 
-    /**
-     * ✅ ฟังก์ชันสำหรับ生成เลขออเดอร์ใหม่ (เร็วมาก ไม่ต้องโหลด network)
-     */
+
     fun getNextOrderNumber(): Int {
         val prefs = sharedPreferences ?: return 1
         val lastNumber = prefs.getInt(KEY_LAST_ORDER_NUMBER, 0)
@@ -61,7 +59,6 @@ object OrderManager {
         orders.add(order)
         saveOrders()
 
-        // ✅ อัปเดตเลขล่าสุด
         try {
             val orderNum = order.orderId.replace("#", "").toIntOrNull()
             if (orderNum != null) {
@@ -78,7 +75,6 @@ object OrderManager {
         }
     }
 
-    // ✅ เพิ่มฟังก์ชันนี้: ให้โหลดจาก Supabase ทุกครั้ง
     suspend fun getOrdersFromSupabase(): List<Order> {
         return withContext(Dispatchers.IO) {
             try {
@@ -99,7 +95,6 @@ object OrderManager {
         }
     }
 
-    // ✅ แก้ไข getOrders เดิม
     fun getOrders(): List<Order> {
         return emptyList()
     }

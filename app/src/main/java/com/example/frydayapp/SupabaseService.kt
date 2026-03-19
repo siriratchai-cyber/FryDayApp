@@ -69,13 +69,13 @@ interface SupabaseService {
     @PATCH("addons")
     @Headers("Content-Type: application/json", "Prefer: return=representation")
     fun updateOption(
-        @QueryMap filters: Map<String, String>,  // ✅ ใช้ QueryMap
+        @QueryMap filters: Map<String, String>,  //  ใช้ QueryMap
         @Body updates: OptionUpdateRequest
     ): Call<List<Map<String, Any>>>
 
     @DELETE("addons")
     @Headers("Content-Type: application/json")
     fun deleteOption(
-        @QueryMap filters: Map<String, String>  // ✅ ต้องเป็น Map
+        @QueryMap filters: Map<String, String>
     ): Call<Void>
 }

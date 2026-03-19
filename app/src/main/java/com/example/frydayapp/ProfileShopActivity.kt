@@ -85,7 +85,6 @@ class ProfileShopActivity : AppCompatActivity() {
         etEditValue = findViewById(R.id.etEditValue)
         btnSaveEdit = findViewById(R.id.btnSaveEdit)
 
-        // ✅ Bottom Navigation - 3 ปุ่มจาก custom_bottom_nav_shop.xml
         btnMenuShop = findViewById(R.id.btn_menu_shop)
         btnStatusShop = findViewById(R.id.btn_status_shop)
         btnProfileShop = findViewById(R.id.btn_profile_shop)
@@ -119,7 +118,6 @@ class ProfileShopActivity : AppCompatActivity() {
             saveEdit()
         }
 
-        // ✅ Bottom Navigation Click Listeners (3 ปุ่ม)
         btnMenuShop.setOnClickListener {
             animateButton(btnMenuShop)
             startActivity(Intent(this, HomeShopActivity::class.java))
@@ -141,7 +139,6 @@ class ProfileShopActivity : AppCompatActivity() {
     }
 
     private fun setSelectedTab() {
-        // ✅ ตั้งค่า alpha: ปุ่ม Profile ชัด, ปุ่มอื่นจาง
         btnMenuShop.alpha = 0.5f
         btnStatusShop.alpha = 0.5f
         btnProfileShop.alpha = 1.0f

@@ -14,7 +14,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-// ✅ ตรวจสอบ imports ให้ถูกต้อง
 import io.github.jan.supabase.postgrest.from
 import com.example.frydayapp.SupabaseClientProvider
 import com.example.frydayapp.Customer
@@ -75,7 +74,6 @@ class OrderSummaryActivity : AppCompatActivity() {
         tvPickupTime = findViewById(R.id.tvPickupTime)
         tvTotal = findViewById(R.id.tvTotal)
 
-        // ✅ ไม่มี btnConfirmOrder ใดๆ ทั้งสิ้น
     }
 
     private fun setupClickListeners() {
@@ -88,7 +86,6 @@ class OrderSummaryActivity : AppCompatActivity() {
         cartItems = CartManager.getCartItems()
         val currentUser = auth.currentUser
 
-        // ✅ แสดง Order ID
         tvOrderId.text = if (orderId.isNotEmpty()) {
             "Order ID: #$orderId"
         } else {

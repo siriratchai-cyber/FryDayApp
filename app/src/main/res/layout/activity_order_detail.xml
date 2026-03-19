@@ -46,7 +46,6 @@
 
         </LinearLayout>
 
-        <!-- ✅ Progress Bar สำหรับ Loading (เพิ่มใหม่) -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -186,7 +185,6 @@
                     android:background="#F0F0F0"
                     android:layout_marginVertical="8dp" />
 
-                <!-- ✅ Special Instructions Section -->
                 <TextView
                     android:id="@+id/tvSpecialInstructionsLabel"
                     android:layout_width="wrap_content"

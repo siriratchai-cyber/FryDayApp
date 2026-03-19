@@ -334,7 +334,6 @@
         android:background="@android:color/white"
         android:elevation="8dp">
 
-        <!-- ✅ ใช้ custom_bottom_nav_shop.xml ที่มี 3 ปุ่ม -->
         <include layout="@layout/custom_bottom_nav_shop" />
 
     </LinearLayout>

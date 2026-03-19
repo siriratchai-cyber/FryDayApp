@@ -152,7 +152,7 @@ class HomeShopActivity : AppCompatActivity() {
     private fun displayData() {
         val sectionList = mutableListOf<Any>()
 
-        // ✅ เพิ่ม Promotion Slider (ถ้ามีโปรโมชั่น)
+
         if (promotionList.isNotEmpty()) {
             sectionList.add("PromotionSlider")  // อันนี้จะเรียกใช้ TYPE_PROMOTION_SLIDER
         }

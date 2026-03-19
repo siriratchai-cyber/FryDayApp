@@ -30,7 +30,7 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <!-- 🔥 เปลี่ยนจากปุ่ม Logout เป็นปุ่ม Cart -->
+        <!--  เปลี่ยนจากปุ่ม Logout เป็นปุ่ม Cart -->
         <ImageButton
             android:id="@+id/btnCart"
             android:layout_width="40dp"
