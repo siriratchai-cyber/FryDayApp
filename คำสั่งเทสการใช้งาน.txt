@@ -1,14 +1,46 @@
-1.เทสเพิ่มโปรโมชั่น
-https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/pro02.png  
+🔐 บัญชีสำหรับเข้าสู่ระบบ
 
-BY1 GET1 FREE COCACOLA
+ระบบมีบัญชีให้ใช้งาน 2 ระดับ ดังนี้
+1) บัญชีร้านค้า
+Username: eieiwork0@gmail.com
+Password: 123456
+2) บัญชีลูกค้า (มีอยู่ในระบบแล้ว)
+Username: sirirat.chai@kkumail.com
+Password: 123456
+นอกจากนี้ ผู้ใช้งานสามารถสมัครบัญชีใหม่ได้ โดยแนะนำให้ใช้อีเมลจริง เพื่อรองรับการกู้คืนรหัสผ่าน (Forgot Password)
 
-2.เทสเพิ่มแอดออน
+🔄 การกู้คืนรหัสผ่าน (Forgot Password)
+กรอกอีเมลที่ใช้สมัครลงในช่องอีเมล
+กดปุ่ม Forgot Password
+ระบบจะส่งลิงก์สำหรับเปลี่ยนรหัสผ่านไปยังอีเมลของคุณ
+หากไม่พบอีเมล กรุณาตรวจสอบใน Spam / Junk Mail
+
+🧪 ฟีเจอร์สำหรับทดสอบระบบ
+1) ทดสอบเพิ่มโปรโมชั่น
+ชื่อโปรโมชั่น: BUY 1 GET 1 FREE COCACOLA
+รูปภาพ:https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/pro02.png
+
+2) ทดสอบเพิ่ม Add-on
+สามารถเพิ่มชื่อและราคาได้ เช่น
 BBQ Sauce
 Mushroom Sauce
 
-3.เทสเปลี่ยนรูปภาพ
+3) การลบ Add-on
+Add-on จะสามารถลบได้ เฉพาะกรณีที่ยังไม่เคยถูกใช้งานในออเดอร์เท่านั้น
+
+4) การโหลดหน้า Status (ลูกค้า / ร้านค้า)
+เมื่อเข้าสู่หน้าสถานะครั้งแรก ระบบจะใช้เวลาโหลดประมาณ 1 นาที
+เนื่องจากมีการดึงข้อมูลจากหลายตารางในฐานข้อมูล
+(เป็นการแก้ปัญหาการโหลดซ้ำในทุกหน้าในระยะยาว)
+
+5) ทดสอบเปลี่ยนรูปโปรไฟล์ (ร้านค้า / ลูกค้า)
+
+สามารถใช้รูปจากลิงก์ด้านล่าง:
 https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/koi-fishjai_10757673.png
 https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/koi-fishkua_10757727.png
 https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/koi-fishlaleng_10757694.png
 https://emdskdwdzsobmztrwwmt.supabase.co/storage/v1/object/public/menu_images/koi_restaurant.png
+
+📌 หมายเหตุ
+ระบบมีการเชื่อมโยงข้อมูลหลายส่วน อาจทำให้บางฟีเจอร์ใช้เวลาโหลด
+แนะนำให้ทดสอบด้วยอินเทอร์เน็ตที่เสถียรเพื่อประสิทธิภาพที่ดีที่สุด
